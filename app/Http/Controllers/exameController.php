@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Usuario;
 use Illuminate\Http\Request;
-use App\Http\Resources\UsuarioResource;
 
-class UsuarioController extends Controller
+class exameController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return UsuarioResource::collection(Usuario::all());
+        return ExameResource::collection(Exame::all());
         //listar todos usuarios
     }
 
@@ -27,19 +25,19 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        return new UsuarioResource(Usuario::create($request->all()));
+        return new ExameResource(Exame::create($request->all()));
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Usuario  $usuario
+     * @param  \App\Exame  $exame
      * @return \Illuminate\Http\Response
      */
-    public function show(Usuario $usuario)
+    public function show(Exame $exame)
     {
-        return new UsuarioResource($usuario);
+        return new ExameResource($exame);
         //
     }
 
@@ -47,27 +45,28 @@ class UsuarioController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Usuario  $usuario
+     * @param  \App\Exame  $exame
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usuario $usuario)
+    public function update(Request $request, Exame $exame)
     {
-        $usuario->update($request->all());
-        return new UsuarioResource($usuario);
+        $exame->update($request->all());
+        return new ExameResource($exame);
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Usuario  $usuario
+     * @param  \App\Exame $exame
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuario $usuario)
+    public function destroy(Exame $exame)
     {
-        $usuario->delete();
-        return response()->json('Apagou com sucessos');
+        $exame->delete();
+        return response()->json('Exame Deletado com sucessos');
         
         //
     }
+    //
 }
