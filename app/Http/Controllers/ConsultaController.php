@@ -4,11 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class pacienteController extends Controller
+use App\Consulta;
+use App\Http\Resources\ConsultaResource;
+
+class ConsultaController extends Controller
 {
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        return PacienteController::collection(Paciente::all());
+        return ConsultaResource::collection(Consulta::all());
         //listar todos usuarios
     }
 
@@ -20,19 +28,19 @@ class pacienteController extends Controller
      */
     public function store(Request $request)
     {
-        return new PacienteResource(Paciente::create($request->all()));
+        return new ConsultaResource(Consulta::create($request->all()));
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Paciente  $paciente
+     * @param  \App\Consulta  $consulta
      * @return \Illuminate\Http\Response
      */
-    public function show(Paciente $paciente)
+    public function show(Consulta $consulta)
     {
-        return new UsuarioResource($paciente);
+        return new ConsultaResource($consulta);
         //
     }
 
@@ -40,30 +48,28 @@ class pacienteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Paciente  $paciente
+     * @param  \App\Consulta  $consulta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Paciente $paciente)
+    public function update(Request $request, Consulta $consulta)
     {
-        $paciente->update($request->all());
-        return new PacienteResource($paciente);
+        $consulta->update($request->all());
+        return new ConsultaResource($consulta);
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Paciente  $usuario
+     * @param  \App\Consulta  $consulta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Paciente $paciente)
+    public function destroy(Consulta $consulta)
     {
-        $paciente->delete();
+        $consulta->delete();
         return response()->json('Apagou com sucessos');
         
         //
     }
-    
-
     //
 }

@@ -14,9 +14,9 @@ class CreateExameTable extends Migration
     public function up()
     {
         Schema::create('exame', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('codigo');
             $table->timestamps();
-            $table->integer('resuldados_paciente');
+            $table->string('resuldados_paciente');
 
 
             $table->unsignedBigInteger('paciente_codigo');

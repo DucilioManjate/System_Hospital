@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Exame;
 
-class consultaController extends Controller
+use App\Http\Resources\ExameResource;
+
+class ExameController extends Controller
 {
      /**
      * Display a listing of the resource.
@@ -13,7 +16,7 @@ class consultaController extends Controller
      */
     public function index()
     {
-        return ConsultaResource::collection(Consulta::all());
+        return ExameResource::collection(Exame::all());
         //listar todos usuarios
     }
 
@@ -25,19 +28,19 @@ class consultaController extends Controller
      */
     public function store(Request $request)
     {
-        return new ConsultaResource(Consulta::create($request->all()));
+        return new ExameResource(Exame::create($request->all()));
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Consulta  $consulta
+     * @param  \App\Exame  $exame
      * @return \Illuminate\Http\Response
      */
-    public function show(Consulta $consulta)
+    public function show(Exame $exame)
     {
-        return new ConsultaResource($consulta);
+        return new ExameResource($exame);
         //
     }
 
@@ -45,26 +48,26 @@ class consultaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Consulta  $consulta
+     * @param  \App\Exame  $exame
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Consulta $consulta)
+    public function update(Request $request, Exame $exame)
     {
-        $consulta->update($request->all());
-        return new ConsultaResource($consulta);
+        $exame->update($request->all());
+        return new ExameResource($exame);
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Consulta  $consulta
+     * @param  \App\Exame $exame
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Consulta $consulta)
+    public function destroy(Exame $exame)
     {
-        $consulta->delete();
-        return response()->json('Apagou com sucessos');
+        $exame->delete();
+        return response()->json('Exame Deletado com sucessos');
         
         //
     }

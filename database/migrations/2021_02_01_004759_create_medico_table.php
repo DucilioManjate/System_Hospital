@@ -14,7 +14,7 @@ class CreateMedicoTable extends Migration
     public function up()
     {
         Schema::create('medico', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('codigo');
             $table->timestamps();
             $table->string('especialidade');
 

@@ -4,12 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class paciente extends Model
+class Paciente extends Model
 {
+  
     
     protected $table = 'paciente', $primaryKey='codigo'; // varialvel
     protected $fillable = [
-        'guia_consulta',  'diagnostico'
+        'guia_consulta',  'diagnostico', 'usuario_codigo', 'consulta_codigo'
     ];
     
 }

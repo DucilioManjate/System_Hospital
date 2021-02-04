@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Medico;
+use App\Http\Resources\MedicoResource;
 
-class exameController extends Controller
+class MedicoController extends Controller
+
 {
      /**
      * Display a listing of the resource.
@@ -13,7 +16,7 @@ class exameController extends Controller
      */
     public function index()
     {
-        return ExameResource::collection(Exame::all());
+        return MedicoResource::collection(Medico::all());
         //listar todos usuarios
     }
 
@@ -25,19 +28,19 @@ class exameController extends Controller
      */
     public function store(Request $request)
     {
-        return new ExameResource(Exame::create($request->all()));
+        return new MedicoResource(Medico::create($request->all()));
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Exame  $exame
+     * @param  \App\Medico  $medico
      * @return \Illuminate\Http\Response
      */
-    public function show(Exame $exame)
+    public function show(Medico $medico)
     {
-        return new ExameResource($exame);
+        return new MedicoResource($medico);
         //
     }
 
@@ -45,26 +48,26 @@ class exameController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Exame  $exame
+     * @param  \App\Medico  $medico
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Exame $exame)
+    public function update(Request $request, Medico $medico)
     {
-        $exame->update($request->all());
-        return new ExameResource($exame);
+        $medico->update($request->all());
+        return new MedicoResource($medico);
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Exame $exame
+     * @param  \App\Medico  $medico
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Exame $exame)
+    public function destroy(Medico $medico)
     {
-        $exame->delete();
-        return response()->json('Exame Deletado com sucessos');
+        $medico->delete();
+        return response()->json('Apagou com sucessos');
         
         //
     }

@@ -14,7 +14,7 @@ class CreateConsultaTable extends Migration
     public function up()
     {
         Schema::create('consulta', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('codigo');
             $table->timestamps();
             $table->date('data');
             $table->time('hora');

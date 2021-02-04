@@ -3,17 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Paciente;
 
-class medicoController extends Controller
+use App\Http\Resources\PacienteResource;
+
+class PacienteController extends Controller
 {
-     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return MedicoResource::collection(Medico::all());
+        return PacienteResource::collection(Paciente::all());
         //listar todos usuarios
     }
 
@@ -25,19 +23,19 @@ class medicoController extends Controller
      */
     public function store(Request $request)
     {
-        return new MedicoResource(Medico::create($request->all()));
+        return new PacienteResource(Paciente::create($request->all()));
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Medico  $medico
+     * @param  \App\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function show(Medico $medico)
+    public function show(Paciente $paciente)
     {
-        return new MedicoResource($medico);
+        return new PacienteResource($paciente);
         //
     }
 
@@ -45,28 +43,30 @@ class medicoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Medico  $medico
+     * @param  \App\Paciente  $paciente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Medico $medico)
+    public function update(Request $request, Paciente $paciente)
     {
-        $medico->update($request->all());
-        return new MedicoResource($medico);
+        $paciente->update($request->all());
+        return new PacienteResource($paciente);
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Medico  $medico
+     * @param  \App\Paciente  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Medico $medico)
+    public function destroy(Paciente $paciente)
     {
-        $medico->delete();
+        $paciente->delete();
         return response()->json('Apagou com sucessos');
         
         //
     }
+    
+
     //
 }

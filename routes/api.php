@@ -13,3 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 Route::apiResource('usuarios', 'UsuarioController');
+Route::apiResource('consultas', 'ConsultaController');
+Route::apiResource('enderecos', 'EnderecoController');
+Route::apiResource('exames', 'ExameController');
+Route::apiResource('pacientes', 'PacienteController');
+Route::apiResource('medicos', 'MedicoController');
+
+Auth::routes();

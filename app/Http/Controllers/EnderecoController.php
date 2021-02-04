@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Endereco;
 use Illuminate\Http\Request;
+use App\Http\Resources\EnderecoResource;
 
-class enderecoController extends Controller
+class EnderecoController extends Controller
 {
      /**
      * Display a listing of the resource.
