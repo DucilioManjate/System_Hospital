@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Hash;
 use App\Usuario;
 use Illuminate\Http\Request;
 use App\Http\Resources\UsuarioResource;
@@ -27,7 +27,11 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
+        \Log::info($request["password"]);
+        $request['password']= Hash::make($request['password']);
+        \Log::info($request["password"]);
         return new UsuarioResource(Usuario::create($request->all()));
+
         //
     }
 

@@ -20,3 +20,5 @@ Route::apiResource('pacientes', 'PacienteController');
 Route::apiResource('medicos', 'MedicoController');
 
 Auth::routes();
+Route::post('auth/login', 'Api\AuthController@login');
+

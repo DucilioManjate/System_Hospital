@@ -22,7 +22,7 @@ class CreateUsuarioTable extends Migration
             $table->string('cpf');
             $table->integer('idade');
             $table->string('sexo');
-            $table->string('senha');
+            $table->string('password');
 
             // $table->unsignedBigInteger('endereco_codigo');
 
