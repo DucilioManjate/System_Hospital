@@ -32,6 +32,7 @@ class Usuario extends Authenticatable implements JWTSubject
     protected $hidden = [
         'password'
     ];
+    
     public function getJWTIdentifier()
     {
         return $this->getKey();

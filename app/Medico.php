@@ -8,7 +8,7 @@ class Medico extends Model
 {
     protected $table = 'medico', $primaryKey='codigo';
     protected $fillable = [
-        'especialidade', 'usuario_codigo'
+        'especialidade', 'usuario_codigo', 'medico_codigo'
     ];
 
     //
